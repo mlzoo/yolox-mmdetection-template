@@ -1,0 +1,16 @@
+__MACOSX/
+anno/
+Annotations/
+CCPD2019/
+checkpoints/
+input/
+license-plate-dataset/
+mmdetection/
+outputs/
+pred/
+test2/
+
+__pycache__/
+*.zip
+*.tar*
+*.pth

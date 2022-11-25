@@ -111,3 +111,26 @@ Step 10: Inference
 python inference_image.py
 ```
 
+
+## Basic Dockerfile
+```Dockerfile
+FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
+
+RUN apt update -y && apt install git gcc ffmpeg libsm6 libxext6 -y
+
+RUN pip install openmim shapely future tensorboard pycocotools
+
+
+
+RUN mkdir /packages && \
+     cd /packages/ && \
+     git clone https://github.com/open-mmlab/mmdetection.git && \
+     cd mmdetection &&\
+     pip install -v -e . && \
+     mim install mmdet mmengine mmcv-full
+```
+
+Or you can simply run
+```
+docker pull mlzoo/mmdetection-predictor:pytorch-1.12.1-python-3.7.13
+```
